@@ -6,8 +6,10 @@ import VueLazyload from 'vue-lazyload'
 // 导入vant组件库
 
 import 'vant/lib/index.css';
-import { Col, Row, Button, Notify, Icon, NavBar, NumberKeyboard, PasswordInput, Field, Form  } from 'vant';
+import { Col, Row, Button, Notify, Icon, NavBar, NumberKeyboard, PasswordInput, Field, Form, IndexBar, IndexAnchor  } from 'vant';
 
+Vue.use(IndexBar);
+Vue.use(IndexAnchor);
 Vue.use(NavBar);
 Vue.use(Col);
 Vue.use(Row);

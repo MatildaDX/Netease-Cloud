@@ -17,7 +17,9 @@
           :pullUpLoad="true" 
           @scrollTopData="scrollTopData"
           :class="{content_active: isLogin}">
-      <router-view></router-view>
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
     </scroll>
     <!-- 底部栏 -->
     <main-tab-bar :class="{is_login: isLogin}"></main-tab-bar>
@@ -43,6 +45,13 @@ export default {
     // tab栏切换
     tabclick(index) {
       this.isTabActive = index
+      if (this.isTabActive === 0) {
+        this.$router.push('/recommend')
+      } else if (this.isTabActive === 1) {
+        this.$router.push('/toplist')
+      } else {
+        this.$router.push('/singer')
+      }
     },
     // 上拉加载更多
     scrollTopData() {
@@ -50,6 +59,7 @@ export default {
     }
   },
   created () {
+    this.$router.push('/recommend')
     const token = window.sessionStorage.getItem("token");
     if (token) {
       this.isLogin = true
@@ -80,13 +90,13 @@ export default {
   .home {
     position: relative;
     height: 100vh;
-    background-color: #FFF;
+    background-color: #F2F3F4;
   }
 
   .content {
     height: calc(100vh - 144px);
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #F2F3F4;
     padding-bottom: 44px;
     text-align: center;
     z-index: 99;

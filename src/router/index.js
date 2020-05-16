@@ -3,8 +3,10 @@ import VueRouter from 'vue-router'
 
 // 懒加载加载组件
 const Home = () => import("views/home/Home")
-const Recommend = () => import("views/recommend/Recommend.vue")
+const Recommend = () => import("views/recommend/Recommend")
 const Login = () => import("views/login/Login")
+const TopList = () => import("views/toplist/TopList")
+const Singer = () => import("views/singer/Singer")
 
 // 注册插件
 Vue.use(VueRouter)
@@ -17,7 +19,9 @@ const routes = [
     component: Home,
     children: [
       { path: '/', redirect: '/recommend' },
-      { path: '/recommend', component: Recommend }
+      { path: '/recommend', component: Recommend },
+      { path: '/toplist', component: TopList },
+      { path: '/singer', component: Singer }
     ]
   }
 ]
